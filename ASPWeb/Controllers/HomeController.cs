@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ASPWeb.Models;
 
 namespace ASPWeb.Controllers
 {
 	public class HomeController : Controller
-	{
-		public ActionResult Index()
+    {
+
+        private ServicesDBContext db = new ServicesDBContext();
+        public ActionResult Index()
 		{
 			return View();
 		}
@@ -20,16 +25,18 @@ namespace ASPWeb.Controllers
 			return View();
 		}
 
-		public ActionResult Galery()
-		{
-			ViewBag.Message = "Your galery page.";
-
-			return View();
-		}
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Services()
+        {
+            return View(db.Services.ToList());
+        
+        ViewBag.Message = "Your services page.";
 
             return View();
         }

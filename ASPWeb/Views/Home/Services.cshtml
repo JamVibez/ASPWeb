@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ASPWeb.Models.Services>
+
+@{
+    ViewBag.Title = "Services";
+}
+
+<div class="jumbotron">
+    <img src="~/Images/LOGORM.png" alt="logo" align="middle" />
+</div>
+
+<h2>Usługi</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+        </tr>
+    }
+
+</table>

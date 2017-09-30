@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ASPWeb.Models.Services>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Usługi</h2>
+
+<p>
+    @Html.ActionLink("Utwórz nową", "Create")
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Nazwa: @Html.TextBox("SearchString")
+        <input type="submit" value="Filtruj" />
+    </p>
+    }
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

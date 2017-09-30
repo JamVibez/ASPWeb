@@ -22,14 +22,14 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("O mnie", "About", "Home")</li>
-                    <li>@Html.ActionLink("Galeria", "Galery", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Usługi", "Services", "Home")</li>
                     <li>@Html.ActionLink("Zamówienie", "Order", "Home")</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="">
         @RenderBody()
         <hr />
         <footer>
